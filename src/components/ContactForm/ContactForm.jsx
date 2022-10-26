@@ -1,14 +1,16 @@
+import { Component } from 'react';
 import css from './ContactForm.module.css';
-// import React, { Component } from 'react';
+// import { ContactList } from 'components/ContactList/ContactList';
 
-// class ContactForm extends Component {
-export const ContactForm = () => {
-    // state = {
-    //     name: '',
-    //     number: '',
-    // }
+class ContactForm extends Component {
+    state = {
+        contacts: [],
+        name: '',
+        number: ''
+    }
 
     // handleChange = (e, name) => {
+
     //     const { target } = e;
 
     //     this.setState(() => ({
@@ -31,42 +33,54 @@ export const ContactForm = () => {
     //     }))
     // };
 
-  
+    hendleInput = e => {
+        this.setState({
+            name: e.target.value,
+            number: e.target.value,
+        });
+    }
+
+
+    render() {
         return (
-            <form className={css.contact_form}>
-                <label className={css.contact_lable}>
-                    Name
-                    <input
-                        className={css.input_name}
-                        // value={this.state.name}
-                        // onChange={this.handleChange('name')}
-                        type="text"
-                        name="name"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                        required
-                    />
-                </label>
+            <div>
 
-                <label className={css.contact_lable}>
-                    Number
-                    <input
-                        className={css.input_num}
-                        // value={this.state.number}
-                        // onChange={this.handleChange('number')}
-                        type="tel"
-                        name="number"
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        required
-                    />
-                </label>
+                <form className={css.contact_form}>
+                    <label className={css.contact_lable}>
+                        Name
+                        <input
+                            className={css.input_name}
+                            value={this.state.name}
+                            onChange={this.hendleInput('name')}
+                            type="text"
+                            name="name"
+                            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                            required
+                        />
+                    </label>
 
-                <button type='submit' className={css.contact_btn_add}>Add contact</button>
+                    <label className={css.contact_lable}>
+                        Number
+                        <input
+                            className={css.input_num}
+                            value={this.state.number}
+                            onChange={this.hendleInput('number')}
+                            type="tel"
+                            name="number"
+                            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                            required
+                        />
+                    </label>
 
-            </form>
+                    <button type='submit' onClick={() => this.addItem({ item: this.state.name, item: this.state.number })} className={css.contact_btn_add}>Add contact</button>
+
+                </form>
+            </div>
         );
+    }
+
 };
 
-
-// export default ContactForm;
+export default ContactForm;

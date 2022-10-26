@@ -1,9 +1,11 @@
 // import { nanoid } from 'nanoid'
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
+// import { Filter } from "./Filter/Filter";
 import { Filter } from "./Filter/Filter";
-import { ContactForm } from "./ContactForm/ContactForm";
-// import { ContactList } from "./ContactList/ContactList";
-// class App extends Component {
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+class App extends Component {
+
 // state = {
 //   contacts: [
 //     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -14,19 +16,20 @@ import { ContactForm } from "./ContactForm/ContactForm";
 //   filter: '',
 // }
 
-// addContact = ({ name, number }) => {
-//   const isNameAdded = name.toUpperCase();
-//   const isAdded = false;
+addContact = ({ name, number }) => {
+  const isNameAdded = name.toUpperCase();
+  const isAdded = false;
 
-//   this.state.contacts.forEach(el => {
-//     if (el.name.toUpperCase() === isNameAdded) {
-//       alert(`${name} is already in contacts`)
-//     }
-//   });
+  this.state.contacts.forEach(el => {
+    if (el.name.toUpperCase() === isNameAdded) {
+      alert(`${name} is already in contacts`)
+    }
+  });
 
-//   if (isAdded) {
-//     return;
-//   }
+  if (isAdded) {
+    return;
+  }
+}
 
 //   const contact = {
 //     id: module.id = nanoid(),
@@ -49,29 +52,30 @@ import { ContactForm } from "./ContactForm/ContactForm";
 //   }));
 // };
 
-//   render() {
-//     // const { filter } = this.state;
-//     return (
-//       <div>
-//         <h1>Phonebook</h1>
-//         <ContactForm  />
+  render() {
+    // const { filter } = this.state;
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm  onSubmit={this.addContact}/>
 
-//         <h2>Contacts</h2>
-//         <Filter />
-//         <ContactList  />
-//       </div>
-//     );
-//   }
-// }
-
-export const App = () => {
-  return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {/* <ContactList /> */}
-    </div>
-  );
+        <h2>Contacts</h2>
+        <Filter />
+        <ContactList  />
+      </div>
+    );
+  }
 }
+
+export default App;
+// export const App = () => {
+//   return (
+//     <div>
+//       <h1>Phonebook</h1>
+//       {/* <ContactForm /> */}
+//       <h2>Contacts</h2>
+//       <Filter />
+//       <ContactList />
+//     </div>
+//   );
+// }
