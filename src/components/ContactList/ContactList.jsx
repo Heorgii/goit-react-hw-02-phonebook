@@ -27,4 +27,4 @@ ContactList.protoType = {
     onDeleteContact: PropTypes.func,
 };
 
-export default ContactList;
+// export default ContactList;
