@@ -55,8 +55,8 @@ class ContactForm extends Component {
                         />
                     </label>
 
-                    <button type='submit' onClick={() => this.addItem({ item: this.state.name, item: this.state.number })} className={css.contact_btn_add}>Add contact</button>
-
+                    <button type='submit' className={css.contact_btn_add}>Add contact</button>
+                    {/* onClick={() => this.addItem({ item: this.state.name, item: this.state.number })} */}
                 </form>
             </div>
         );
