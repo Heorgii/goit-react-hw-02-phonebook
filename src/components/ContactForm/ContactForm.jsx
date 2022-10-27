@@ -7,38 +7,19 @@ class ContactForm extends Component {
         contacts: [],
         name: '',
         number: ''
-    }
+    };
 
-    // handleChange = (e, name) => {
+    addItem = item => {
+        this.setState({ ...this.state.contacts, item })
+    };
 
-    //     const { target } = e;
+    handleChange = name => e => {
+        const { target } = e;
 
-    //     this.setState(() => ({
-    //         [name]: target.value,
-    //     }))
-    // };
-
-    // handleSubmit = e => {
-    //     e.prevantDefault();
-
-    //     const { onSubmit } = this.props;
-    //     onSubmit(this.state);
-    //     this.resetForm();
-    // };
-
-    // resetForm = e => {
-    //     this.setState(() => ({
-    //         name: '',
-    //         number: '',
-    //     }))
-    // };
-
-    hendleInput = e => {
-        this.setState({
-            name: e.target.value,
-            number: e.target.value,
-        });
-    }
+        this.setState(() => ({
+            [name]: target.value,
+        }));
+    };
 
 
     render() {
@@ -51,7 +32,7 @@ class ContactForm extends Component {
                         <input
                             className={css.input_name}
                             value={this.state.name}
-                            onChange={this.hendleInput('name')}
+                            onChange={this.handleChange('name')}
                             type="text"
                             name="name"
                             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -65,7 +46,7 @@ class ContactForm extends Component {
                         <input
                             className={css.input_num}
                             value={this.state.number}
-                            onChange={this.hendleInput('number')}
+                            onChange={this.handleChange('number')}
                             type="tel"
                             name="number"
                             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

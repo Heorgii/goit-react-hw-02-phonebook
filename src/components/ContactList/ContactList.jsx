@@ -2,13 +2,8 @@ import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 
-// const ContactList = ({ contacts, onDeleteContact }) => {
+
 class ContactList extends Component {
-    state = {
-        contacts: [],
-        name: '',
-        number: ''
-    }
 
     renderList = ({ contacts, onDeleteContact }) => {
         return (
@@ -25,10 +20,11 @@ class ContactList extends Component {
         );
     }
 
-    render(){
-        return(this.renderList);
+    render() {
+        return (this.renderList);
     }
 };
+
 
 ContactList.protoType = {
     contact: PropTypes.arrayOf(

@@ -2,7 +2,7 @@ import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 export const Filter = ({ value, onChange }) => {
-
+    
     return (
         <div className={css.filter_box}>
             <label>
