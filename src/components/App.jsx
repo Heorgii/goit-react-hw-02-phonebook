@@ -21,7 +21,7 @@ class App extends Component {
     const isNameAdded = name.toUpperCase();
     let isAdded = false;
 
-    this.state.forEach(el => {
+    this.state.contacts.forEach(el => {
       if (el.name.toUpperCase() === isNameAdded) {
         alert(`${name} is already in contacts`)
       }
@@ -56,7 +56,7 @@ class App extends Component {
 
         <h2>Contacts</h2>
         <Filter />
-        <ContactList />
+        <ContactList onDeleteContact={this.deleteContact} />
       </div>
     );
   }

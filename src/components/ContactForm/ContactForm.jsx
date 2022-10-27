@@ -32,7 +32,7 @@ class ContactForm extends Component {
 
     render() {
         return (
-            <form className={css.contact_form}>
+            <form className={css.contact_form} onSubmit={this.handleSubmit}>
                 <label className={css.contact_lable}>
                     Name
                     <input
