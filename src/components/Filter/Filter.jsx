@@ -1,7 +1,7 @@
 import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 
-export const Filter = ({ value, onChange }) => {
+const Filter = ({ value, onChange }) => {
     
     return (
         <div className={css.filter_box}>
@@ -20,4 +20,4 @@ Filter.protoType = {
     onChange: PropTypes.func,
 };
 
-// export default Filter;
+export default Filter;
