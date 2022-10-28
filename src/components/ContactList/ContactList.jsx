@@ -10,8 +10,8 @@ class ContactList extends Component {
                 <ul className={css.list}>
                     {contacts.map(({ id, name, number }) => (
                         <li key={id} className={css.item}>
-                            <p className={css.contact_name}>{name}</p>
-                            <p className={css.contact_number}>{number}</p>
+                            <p className={css.contact_name}>{name} ------------ {number}</p>
+                            {/* <p className={css.contact_number}>{number}</p> */}
 
                             <button className={css.btn_delete_contact} type='submit' onClick={() => onDeleteContact(id)}>Delete</button>
                         </li>
